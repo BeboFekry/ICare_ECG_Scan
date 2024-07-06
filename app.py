@@ -22,7 +22,6 @@ uploaded_file = st.file_uploader("Choose an image...", type=["csv", "xlsx"])
 if uploaded_file is not None:
     # if uploaded_file.e
     d = pd.read_csv(uploaded_file)
-    st.write(d)
     if d.isnull().sum().sum() !=0:
         d.fillna(d.mean())
     d = d.iloc[0,:187].values.reshape(1,-1)    
@@ -32,7 +31,8 @@ if uploaded_file is not None:
     st.write(f"{disease} detected!")
     st.write("info")
     plt.grid()
-    plt.plot(d, label=f"{disease}", c='firebrick')
+    fig = plt.plot(d, label=f"{disease}", c='firebrick')
     plt.suptitle("Electrocardiography ECG")
     plt.legend(loc='upper right')
     plt.show()
+    st.image(fig)
