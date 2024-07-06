@@ -35,4 +35,4 @@ if uploaded_file is not None:
     ax.plot(d, label=f"Class", c='firebrick')
     plt.suptitle("Electrocardiography ECG")
     plt.legend(loc='upper right')
-    st.image(fig)
+    st.pyplot(fig)
