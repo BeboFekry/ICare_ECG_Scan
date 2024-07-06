@@ -104,14 +104,13 @@ if uploaded_file is not None:
     d = d.iloc[0,:187].values
     # d = d.values.reshape(1,-1)
     output = int(ecg.predict(d.reshape(1,-1))[0])
-    disease = heart_diseases[output]
-    st.pyplot(fig)
-    st.write(f"{disease} detected!")
-    if outpur !=0:
-        st.write(f"{info[output]}")
-    plt.grid()
+    disease = heart_diseases[output]    plt.grid()
     fig, ax = plt.subplots()
     ax.plot(d, label=f"{disease}", c='firebrick')
     plt.suptitle("Electrocardiography ECG")
     plt.legend(loc='upper right')
+    st.pyplot(fig)
+    st.write(f"{disease} detected!")
+    if outpur !=0:
+        st.write(f"{info[output]}")
     
