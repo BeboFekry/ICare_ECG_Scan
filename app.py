@@ -24,15 +24,15 @@ if uploaded_file is not None:
     d = pd.read_csv(uploaded_file)
     if d.isnull().sum().sum() !=0:
         d.fillna(d.mean())
-    d = d.iloc[0,:187].values.reshape(1,-1)    
+    d = d.iloc[0,:187].values
     # d = d.values.reshape(1,-1)
-    output = int(ecg.predict(d)[0])
+    output = int(ecg.predict(d.reshape(1,-1))[0])
     disease = heart_diseases[output]
     st.write(f"{disease} detected!")
     st.write("info")
     plt.grid()
     fig, ax = plt.subplots()
-    ax.plot(x, label=f"Class", c='firebrick')
+    ax.plot(d, label=f"Class", c='firebrick')
     plt.suptitle("Electrocardiography ECG")
     plt.legend(loc='upper right')
     st.image(fig)
