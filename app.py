@@ -22,6 +22,7 @@ uploaded_file = st.file_uploader("Choose an image...", type=["csv", "xlsx"])
 if uploaded_file is not None:
     # if uploaded_file.e
     d = pd.read_csv(uploaded_file)
+    st.write(d)
     if d.isnull().sum().sum() !=0:
         d.fillna(d.mean())
     d = d.iloc[0,:].values.reshape(1,-1)    
