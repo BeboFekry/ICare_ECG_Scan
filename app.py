@@ -32,7 +32,7 @@ if uploaded_file is not None:
     st.write("info")
     plt.grid()
     fig, ax = plt.subplots()
-    ax.plot(d, label=f"disease", c='firebrick')
+    ax.plot(d, label=f"{disease}", c='firebrick')
     plt.suptitle("Electrocardiography ECG")
     plt.legend(loc='upper right')
     st.pyplot(fig)
