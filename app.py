@@ -112,6 +112,6 @@ if uploaded_file is not None:
     plt.legend(loc='upper right')
     st.pyplot(fig)
     st.write(f"{disease} detected!")
-    if outpur !=0:
+    if output !=0:
         st.write(f"{info[output]}")
     
